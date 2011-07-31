@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Git Magic deutsch\n"
 "Report-Msgid-Bugs-To: bennlynn@gmail.com\n"
-"POT-Creation-Date: 2010-10-30 08:21+0300\n"
-"PO-Revision-Date: 2011-07-03 15:23+0200\n"
+"POT-Creation-Date: 2011-07-31 18:47+0300\n"
+"PO-Revision-Date: 2011-07-31 21:39+0200\n"
 "Last-Translator: Armin Stebich <armin@lordofbikes.de>\n"
 "Language-Team: DE <gitmagic@lordofbikes.de>\n"
 "Language: de\n"
@@ -69,7 +69,7 @@ msgstr ""
 "eingegeben? Dann gib ein:"
 
 #. type: Plain text
-#: ../en/history.txt:20 ../en/history.txt:54
+#: ../en/history.txt:20
 #, no-wrap
 msgid " $ git commit --amend\n"
 msgstr " $ git commit --amend\n"
@@ -105,26 +105,26 @@ msgid "=== ... And Then Some ==="
 msgstr "=== ... und noch viel mehr ==="
 
 #. type: Plain text
-#: ../en/history.txt:31
+#: ../en/history.txt:33
 msgid ""
-"Let's suppose the previous problem is ten times worse. After a lengthy "
-"session you've made a bunch of commits. But you're not quite happy with the "
-"way they're organized, and some of those commit messages could use "
-"rewording. Then type:"
+"Suppose the previous problem is ten times worse. After a lengthy session "
+"you've made a bunch of commits. But you're not quite happy with the way "
+"they're organized, and some of those commit messages could use rewording. "
+"Then type:"
 msgstr ""
-"Nehmen wir jetzt an, das vorherige Problem ist zehnmal schlimmer. Nach einer "
+"Nehmen wir an, das vorherige Problem ist zehnmal schlimmer. Nach einer "
 "längeren Sitzung hast du einen Haufen 'Commits' gemacht. Aber du bist mit "
 "der Art der Organisation nicht glücklich und einige 'Commits' könnten etwas "
 "umformuliert werden. Dann gib ein:"
 
 #. type: Plain text
-#: ../en/history.txt:33
+#: ../en/history.txt:35
 #, no-wrap
 msgid " $ git rebase -i HEAD~10\n"
 msgstr " $ git rebase -i HEAD~10\n"
 
 #. type: Plain text
-#: ../en/history.txt:35
+#: ../en/history.txt:37
 msgid ""
 "and the last 10 commits will appear in your favourite $EDITOR. A sample "
 "excerpt:"
@@ -133,7 +133,7 @@ msgstr ""
 "Auszug aus einem Beispiel:"
 
 #. type: Plain text
-#: ../en/history.txt:39
+#: ../en/history.txt:41
 #, no-wrap
 msgid ""
 "    pick 5c6eb73 Added repo.or.cz link\n"
@@ -145,30 +145,32 @@ msgstr ""
 "    pick 100834f Push-Ziel zum Makefile hinzugefügt\n"
 
 #. type: Plain text
-#: ../en/history.txt:41
-msgid "Then:"
-msgstr "Dann:"
-
-#. type: Bullet: '- '
-#: ../en/history.txt:49
-msgid "Remove commits by deleting lines."
-msgstr "Entferne 'Commits' durch das Löschen von Zeilen."
-
-#. type: Bullet: '- '
-#: ../en/history.txt:49
-msgid "Reorder commits by reordering lines."
-msgstr "Organisiere 'Commits' durch verschieben von Zeilen."
+#: ../en/history.txt:44
+msgid ""
+"Older commits precede newer commits in this list, unlike the `log` command.  "
+"Here, 5c6eb73 is the oldest commit, and 100834f is the newest. Then:"
+msgstr ""
+"In dieser Liste stehen die älteren 'Commits' vor den neuen, anders als beim "
+"'log' Befehl. Hier ist 5c6eb73 der älteste 'Commit' und 100834f ist der "
+"neueste. Dann:"
 
 #. type: Plain text
-#: ../en/history.txt:49
+#: ../en/history.txt:53
 #, no-wrap
 msgid ""
+"- Remove commits by deleting lines. Like the revert command, but off the\n"
+"  record: it will be as if the commit never existed.\n"
+"- Reorder commits by reordering lines.\n"
 "- Replace `pick` with:\n"
 "   * `edit` to mark a commit for amending.\n"
 "   * `reword` to change the log message.\n"
 "   * `squash` to merge a commit with the previous one.\n"
 "   * `fixup` to merge a commit with the previous one and discard the log message.\n"
 msgstr ""
+"- Entferne 'Commits' durch das Löschen von Zeilen. Das ist wie die\n"
+"  'revert' Anweisung, aber inoffiziell: Es wird so sein, als hätte\n"
+"  der 'Commit' gar nie existiert.\n"
+"- Organisiere 'Commits' durch das Verschieben von Zeilen.\n"
 "- Ersetze `pick` mit:\n"
 "   * `edit` um einen 'Commit' für 'amends' zu markieren.\n"
 "   * `reword` um die Log-Beschreibung zu ändern.\n"
@@ -176,35 +178,95 @@ msgstr ""
 "   * `fixup` um einen 'Commit' mit dem vorhergehenden zu vereinen ('merge') und die Log-Beschreibung zu verwerfen.\n"
 
 #. type: Plain text
-#: ../en/history.txt:52
-msgid "Save and quit. If you marked a commit for editing, then run:"
+#: ../en/history.txt:55
+msgid "For example, we might replace the second `pick` with `squash`:"
+msgstr "Zum Beispiel ersetzen wir das zweite `pick` durch `squash`:"
+
+#. type: Plain text
+#: ../en/history.txt:59
+#, no-wrap
+msgid ""
+"    pick 5c6eb73 Added repo.or.cz link\n"
+"    squash a311a64 Reordered analogies in \"Work How You Want\"\n"
+"    pick 100834f Added push target to Makefile\n"
 msgstr ""
-"Speichere und Beende. Wenn du einen 'Commit' mit 'edit' markiert hast, gib "
-"ein:"
+"    pick 5c6eb73 Link repo.or.cz hinzugefügt\n"
+"    squash a311a64 Analogien in \"Arbeite wie du willst\" umorganisiert\n"
+"    pick 100834f Push-Ziel zum Makefile hinzugefügt\n"
 
 #. type: Plain text
-#: ../en/history.txt:56
-msgid "Otherwise, run:"
-msgstr "Ansonsten:"
+#: ../en/history.txt:62
+msgid ""
+"After we save and quit, Git merges a311a64 into 5c6eb73. Thus *squash* "
+"merges into the next commit up: think ``squash up''."
+msgstr ""
+"Nach dem Speichern und Beenden wird Git den 'Commit' a311a64 in den 'Commit' "
+"5c6eb73 'mergen'. Dieses *squash* zwängt die Änderungen in den nächsten "
+"'Commit' darüber: Denke an ``aufzwingen''."
 
 #. type: Plain text
-#: ../en/history.txt:58
+#: ../en/history.txt:65
+msgid ""
+"Git then combines their log messages and presents them for editing. The "
+"command *fixup* skips this step; the squashed log message is simply "
+"discarded."
+msgstr ""
+"Git kombiniert die Log-Beschreibungen und präsentiert sie zum Bearbeiten. "
+"Die Anweisung *fixup* überspringt diesen Schritt; Die Log-Beschreibung des "
+"aufgezwungenen 'Commit' wird einfach verworfen."
+
+#. type: Plain text
+#: ../en/history.txt:70
+msgid ""
+"If you marked a commit with *edit*, Git returns you to the past, to the "
+"oldest such commit. You can amend the old commit as described in the "
+"previous section, and even create new commits that belong here. Once you're "
+"pleased with the ``retcon'', go forward in time by running:"
+msgstr ""
+"Wenn du einen 'Commit' mit *'edit'* markiert hast, bringt Dich Git in die "
+"Vergangenheit, zum ältesten 'Commit' dieser Art. Du kannst den alten "
+"'Commit' zurücknehmen, wie im vorhergehenden Abschnitt beschrieben und sogar "
+"neue 'Commits' erstellen, die hier her gehören. Wenn Du mit Deinen "
+"``rückwirkenden Änderungen'' zufrieden bist, gehe weiter in Richtung "
+"Gegenwart durch Eingabe von:"
+
+#. type: Plain text
+#: ../en/history.txt:72
 #, no-wrap
 msgid " $ git rebase --continue\n"
 msgstr " $ git rebase --continue\n"
 
 #. type: Plain text
-#: ../en/history.txt:60
+#: ../en/history.txt:74
+msgid ""
+"Git replays commits until the next *edit*, or to the present if none remain."
+msgstr ""
+"Git wiederholt dann alle 'Commits' bis zum nächsten *'edit'* oder bis zur "
+"Gegenwart, wenn keine weiteren vorkommen."
+
+#. type: Plain text
+#: ../en/history.txt:76
+msgid "You can also abandon the rebase with:"
+msgstr "Du kannst den 'Rebase' auch abbrechen, mit:"
+
+#. type: Plain text
+#: ../en/history.txt:78
+#, no-wrap
+msgid " $ git rebase --abort\n"
+msgstr " $ git rebase --abort\n"
+
+#. type: Plain text
+#: ../en/history.txt:80
 msgid "So commit early and commit often: you can tidy up later with rebase."
 msgstr "Also 'commite' früh und oft: du kannst später mit 'rebase' aufräumen."
 
 #. type: Plain text
-#: ../en/history.txt:62
+#: ../en/history.txt:82
 msgid "=== Local Changes Last ==="
 msgstr "=== Lokale Änderungen zum Schluß ==="
 
 #. type: Plain text
-#: ../en/history.txt:65
+#: ../en/history.txt:85
 msgid ""
 "You're working on an active project. You make some local commits over time, "
 "and then you sync with the official tree with a merge. This cycle repeats "
@@ -216,7 +278,7 @@ msgstr ""
 "du zum 'Pushen' in den zentralen Zweig bereit bist."
 
 #. type: Plain text
-#: ../en/history.txt:67
+#: ../en/history.txt:87
 msgid ""
 "But now the history in your local Git clone is a messy jumble of your "
 "changes and the official changes. You'd prefer to see all your changes in "
@@ -228,7 +290,7 @@ msgstr ""
 "hinter den offiziellen Änderungen sehen."
 
 #. type: Plain text
-#: ../en/history.txt:70
+#: ../en/history.txt:90
 msgid ""
 "This is a job for *git rebase* as described above. In many cases you can use "
 "the *--onto* flag and avoid interaction."
@@ -237,7 +299,7 @@ msgstr ""
 "Fällen kannst du den *--onto* Schalter benutzen um Interaktion zu vermeiden."
 
 #. type: Plain text
-#: ../en/history.txt:72
+#: ../en/history.txt:92
 msgid ""
 "Also see *git help rebase* for detailed examples of this amazing command. "
 "You can split commits. You can even rearrange branches of a tree."
@@ -247,12 +309,21 @@ msgstr ""
 "einem 'Repository' umorganisieren."
 
 #. type: Plain text
-#: ../en/history.txt:74
+#: ../en/history.txt:95
+msgid ""
+"Take care: rebase is a powerful command. For complicated rebases, first make "
+"a backup with *git clone*."
+msgstr ""
+"Sei Vorsichtig: 'Rebase' ist eine mächtige Anweisung. Für komplizierte "
+"'Rebase'-Aktionen, mache vorher eine Sicherung mit *git clone*."
+
+#. type: Plain text
+#: ../en/history.txt:97
 msgid "=== Rewriting History ==="
 msgstr "=== Chronik umschreiben ==="
 
 #. type: Plain text
-#: ../en/history.txt:82
+#: ../en/history.txt:105
 msgid ""
 "Occasionally, you need the source control equivalent of airbrushing people "
 "out of official photos, erasing them from history in a Stalinesque fashion. "
@@ -272,13 +343,13 @@ msgstr ""
 "könnte. Wir müssen die Datei aus allen 'Commits' entfernen:"
 
 #. type: Plain text
-#: ../en/history.txt:84
+#: ../en/history.txt:107
 #, no-wrap
 msgid " $ git filter-branch --tree-filter 'rm top/secret/file' HEAD\n"
 msgstr " $ git filter-branch --tree-filter 'rm sehr/geheime/Datei' HEAD\n"
 
 #. type: Plain text
-#: ../en/history.txt:88
+#: ../en/history.txt:111
 msgid ""
 "See *git help filter-branch*, which discusses this example and gives a "
 "faster method. In general, *filter-branch* lets you alter large sections of "
@@ -289,7 +360,7 @@ msgstr ""
 "große Bereiche der Chronik mit einer einzigen Anweisung verändern."
 
 #. type: Plain text
-#: ../en/history.txt:90
+#: ../en/history.txt:113
 msgid ""
 "Afterwards, the +.git/refs/original+ directory describes the state of "
 "affairs before the operation. Check the filter-branch command did what you "
@@ -302,7 +373,7 @@ msgstr ""
 "Operationen durchführst."
 
 #. type: Plain text
-#: ../en/history.txt:92
+#: ../en/history.txt:115
 msgid ""
 "Lastly, replace clones of your project with your revised version if you want "
 "to interact with them later."
@@ -311,12 +382,12 @@ msgstr ""
 "Version, falls du später mit ihnen interagieren möchtest."
 
 #. type: Plain text
-#: ../en/history.txt:94
+#: ../en/history.txt:117
 msgid "=== Making History ==="
 msgstr "=== Geschichte machen ==="
 
 #. type: Plain text
-#: ../en/history.txt:97
+#: ../en/history.txt:120
 msgid ""
 "[[makinghistory]] Want to migrate a project to Git? If it's managed with one "
 "of the more well-known systems, then chances are someone has already written "
@@ -328,7 +399,7 @@ msgstr ""
 "exportiert."
 
 #. type: Plain text
-#: ../en/history.txt:102
+#: ../en/history.txt:125
 msgid ""
 "Otherwise, look up *git fast-import*, which reads text input in a specific "
 "format to create Git history from scratch. Typically a script using this "
@@ -342,7 +413,7 @@ msgstr ""
 "Lauf zu migrieren."
 
 #. type: Plain text
-#: ../en/history.txt:104
+#: ../en/history.txt:127
 #, no-wrap
 msgid ""
 "As an example, paste the following listing into temporary file, such as `/tmp/history`:\n"
@@ -352,7 +423,7 @@ msgstr ""
 "----------------------------------\n"
 
 #. type: Plain text
-#: ../en/history.txt:110
+#: ../en/history.txt:133
 msgid ""
 "commit refs/heads/master committer Alice <alice@example.com> Thu, 01 Jan "
 "1970 00:00:00 +0000 data <<EOT Initial commit.  EOT"
@@ -361,12 +432,12 @@ msgstr ""
 "1970 00:00:00 +0000 data <<EOT Initial commit.  EOT"
 
 #. type: Plain text
-#: ../en/history.txt:114
+#: ../en/history.txt:137
 msgid "M 100644 inline hello.c data <<EOT #include <stdio.h>"
 msgstr "M 100644 inline hello.c data <<EOT #include <stdio.h>"
 
 #. type: Plain text
-#: ../en/history.txt:120
+#: ../en/history.txt:143
 #, no-wrap
 msgid ""
 "int main() {\n"
@@ -382,7 +453,7 @@ msgstr ""
 "EOT\n"
 
 #. type: Plain text
-#: ../en/history.txt:127
+#: ../en/history.txt:150
 msgid ""
 "commit refs/heads/master committer Bob <bob@example.com> Tue, 14 Mar 2000 "
 "01:59:26 -0800 data <<EOT Replace printf() with write().  EOT"
@@ -391,12 +462,12 @@ msgstr ""
 "01:59:26 -0800 data <<EOT Ersetze printf() mit write().  EOT"
 
 #. type: Plain text
-#: ../en/history.txt:131
+#: ../en/history.txt:154
 msgid "M 100644 inline hello.c data <<EOT #include <unistd.h>"
 msgstr "M 100644 inline hello.c data <<EOT #include <unistd.h>"
 
 #. type: Plain text
-#: ../en/history.txt:137
+#: ../en/history.txt:160
 #, no-wrap
 msgid ""
 "int main() {\n"
@@ -412,20 +483,20 @@ msgstr ""
 "EOT\n"
 
 #. type: Plain text
-#: ../en/history.txt:138
+#: ../en/history.txt:161
 #, no-wrap
 msgid "----------------------------------\n"
 msgstr "----------------------------------\n"
 
 #. type: Plain text
-#: ../en/history.txt:141
+#: ../en/history.txt:164
 msgid "Then create a Git repository from this temporary file by typing:"
 msgstr ""
 "Dann, erstelle ein Git 'Repository' aus dieser temporären Datei, durch "
 "Eingabe von:"
 
 #. type: Plain text
-#: ../en/history.txt:144
+#: ../en/history.txt:167
 #, no-wrap
 msgid ""
 " $ mkdir project; cd project; git init\n"
@@ -435,19 +506,19 @@ msgstr ""
 " $ git fast-import --date-format=rfc2822 < /tmp/history\n"
 
 #. type: Plain text
-#: ../en/history.txt:146
+#: ../en/history.txt:169
 msgid "You can checkout the latest version of the project with:"
 msgstr ""
 "Die aktuellste Version des Projekts kannst du abrufen ('checkout') mit:"
 
 #. type: Plain text
-#: ../en/history.txt:148
+#: ../en/history.txt:171
 #, no-wrap
 msgid " $ git checkout master .\n"
 msgstr " $ git checkout master .\n"
 
 #. type: Plain text
-#: ../en/history.txt:153
+#: ../en/history.txt:176
 msgid ""
 "The *git fast-export* command converts any repository to the *git fast-"
 "import* format, whose output you can study for writing exporters, and also "
@@ -462,12 +533,12 @@ msgstr ""
 "Klartext-'Repositories' über reine Textkanäle übertragen."
 
 #. type: Plain text
-#: ../en/history.txt:155
+#: ../en/history.txt:178
 msgid "=== Where Did It All Go Wrong? ==="
 msgstr "=== Wo ging alles schief? ==="
 
 #. type: Plain text
-#: ../en/history.txt:157
+#: ../en/history.txt:180
 msgid ""
 "You've just discovered a broken feature in your program which you know for "
 "sure was working a few months ago. Argh! Where did this bug come from? If "
@@ -479,7 +550,7 @@ msgstr ""
 "Entwicklung getestet."
 
 #. type: Plain text
-#: ../en/history.txt:160
+#: ../en/history.txt:183
 msgid ""
 "It's too late for that now. However, provided you've been committing often, "
 "Git can pinpoint the problem:"
@@ -488,7 +559,7 @@ msgstr ""
 "'comittet', kann Git dir sagen, wo das Problem liegt:"
 
 #. type: Plain text
-#: ../en/history.txt:164
+#: ../en/history.txt:187
 #, no-wrap
 msgid ""
 " $ git bisect start\n"
@@ -500,7 +571,7 @@ msgstr ""
 " $ git bisect good 1b6d\n"
 
 #. type: Plain text
-#: ../en/history.txt:166
+#: ../en/history.txt:189
 msgid ""
 "Git checks out a state halfway in between. Test the feature, and if it's "
 "still broken:"
@@ -509,13 +580,13 @@ msgstr ""
 "wenn sich immer noch nicht funktioniert:"
 
 #. type: Plain text
-#: ../en/history.txt:168
+#: ../en/history.txt:191
 #, no-wrap
 msgid " $ git bisect bad\n"
 msgstr " $ git bisect bad\n"
 
 #. type: Plain text
-#: ../en/history.txt:174
+#: ../en/history.txt:197
 msgid ""
 "If not, replace \"bad\" with \"good\". Git again transports you to a state "
 "halfway between the known good and bad versions, narrowing down the "
@@ -530,13 +601,13 @@ msgstr ""
 "deine Ermittlungen abgeschlossen hast, kehre zum Originalstand zurück mit:"
 
 #. type: Plain text
-#: ../en/history.txt:176
+#: ../en/history.txt:199
 #, no-wrap
 msgid " $ git bisect reset\n"
 msgstr " $ git bisect reset\n"
 
 #. type: Plain text
-#: ../en/history.txt:178
+#: ../en/history.txt:201
 msgid ""
 "Instead of testing every change by hand, automate the search by running:"
 msgstr ""
@@ -544,13 +615,13 @@ msgstr ""
 "Ausführen von:"
 
 #. type: Plain text
-#: ../en/history.txt:180
+#: ../en/history.txt:203
 #, no-wrap
 msgid " $ git bisect run my_script\n"
 msgstr " $ git bisect run mein_skript\n"
 
 #. type: Plain text
-#: ../en/history.txt:185
+#: ../en/history.txt:208
 msgid ""
 "Git uses the return value of the given command, typically a one-off script, "
 "to decide whether a change is good or bad: the command should exit with code "
@@ -565,7 +636,7 @@ msgstr ""
 "'bisect'-Operation sofort."
 
 #. type: Plain text
-#: ../en/history.txt:189
+#: ../en/history.txt:212
 msgid ""
 "You can do much more: the help page explains how to visualize bisects, "
 "examine or replay the bisect log, and eliminate known innocent changes for a "
@@ -576,24 +647,24 @@ msgstr ""
 "sicher unschuldige Änderungen ausschließt um die Suche zu beschleunigen."
 
 #. type: Plain text
-#: ../en/history.txt:191
+#: ../en/history.txt:214
 msgid "=== Who Made It All Go Wrong? ==="
 msgstr "=== Wer ist verantwortlich? ==="
 
 #. type: Plain text
-#: ../en/history.txt:193
+#: ../en/history.txt:216
 msgid "Like many other version control systems, Git has a blame command:"
 msgstr ""
 "Wie viele andere Versionsverwaltungssysteme hat Git eine 'blame' Anweisung:"
 
 #. type: Plain text
-#: ../en/history.txt:195
+#: ../en/history.txt:218
 #, no-wrap
 msgid " $ git blame bug.c\n"
 msgstr " $ git blame bug.c\n"
 
 #. type: Plain text
-#: ../en/history.txt:197
+#: ../en/history.txt:220
 msgid ""
 "which annotates every line in the given file showing who last changed it, "
 "and when. Unlike many other version control systems, this operation works "
@@ -605,12 +676,12 @@ msgstr ""
 "nur von der lokalen Festplatte gelesen."
 
 #. type: Plain text
-#: ../en/history.txt:199
+#: ../en/history.txt:222
 msgid "=== Personal Experience ==="
 msgstr "=== Persönliche Erfahrungen ==="
 
 #. type: Plain text
-#: ../en/history.txt:206
+#: ../en/history.txt:229
 msgid ""
 "In a centralized version control system, history modification is a difficult "
 "operation, and only available to administrators. Cloning, branching, and "
@@ -628,7 +699,7 @@ msgstr ""
 "eine Datei zum Bearbeiten zu öffnen."
 
 #. type: Plain text
-#: ../en/history.txt:213
+#: ../en/history.txt:236
 msgid ""
 "Centralized systems preclude working offline, and need more expensive "
 "network infrastructure, especially as the number of developers grows. Most "
@@ -647,7 +718,7 @@ msgstr ""
 "unterbrochen wird."
 
 #. type: Plain text
-#: ../en/history.txt:219
+#: ../en/history.txt:242
 msgid ""
 "I experienced these phenomena first-hand. Git was the first version control "
 "system I used. I quickly grew accustomed to it, taking many features for "
@@ -663,7 +734,7 @@ msgstr ""
 "anders sein als die Auswahl eines Texteditors oder Internetbrowser."
 
 #. type: Plain text
-#: ../en/history.txt:225
+#: ../en/history.txt:248
 msgid ""
 "I was shocked when later forced to use a centralized system. A flaky "
 "internet connection matters little with Git, but makes development "
@@ -680,7 +751,7 @@ msgstr ""
 "meinem gewohnten Arbeitsablauf zu folgen."
 
 #. type: Plain text
-#: ../en/history.txt:232
+#: ../en/history.txt:255
 msgid ""
 "When I had to run a slow command, the interruption to my train of thought "
 "dealt a disproportionate amount of damage. While waiting for server "
@@ -699,7 +770,7 @@ msgstr ""
 "gut im Kontextwechsel."
 
 #. type: Plain text
-#: ../en/history.txt:237
+#: ../en/history.txt:260
 msgid ""
 "There was also an interesting tragedy-of-the-commons effect: anticipating "
 "network congestion, individuals would consume more bandwidth than necessary "
@@ -714,3 +785,20 @@ msgstr ""
 "Die Summe der Bemühungen verschlimmerte die Überlastungen, was einzelne "
 "wiederum ermutigte noch mehr Bandbreite zu verbrauchen um noch längere "
 "Wartezeiten zu verhindern."
+
+#~ msgid "Then:"
+#~ msgstr "Dann:"
+
+#~ msgid "Remove commits by deleting lines."
+#~ msgstr "Entferne 'Commits' durch das Löschen von Zeilen."
+
+#~ msgid "Reorder commits by reordering lines."
+#~ msgstr "Organisiere 'Commits' durch verschieben von Zeilen."
+
+#~ msgid "Save and quit. If you marked a commit for editing, then run:"
+#~ msgstr ""
+#~ "Speichere und Beende. Wenn du einen 'Commit' mit 'edit' markiert hast, "
+#~ "gib ein:"
+
+#~ msgid "Otherwise, run:"
+#~ msgstr "Ansonsten:"

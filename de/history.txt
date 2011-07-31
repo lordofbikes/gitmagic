@@ -32,7 +32,7 @@ Dann mache diese Änderungen und gib ein:
 
 === ... und noch viel mehr ===
 
-Nehmen wir jetzt an, das vorherige Problem ist zehnmal schlimmer. Nach einer
+Nehmen wir an, das vorherige Problem ist zehnmal schlimmer. Nach einer
 längeren Sitzung hast du einen Haufen 'Commits' gemacht. Aber du bist mit
 der Art der Organisation nicht glücklich und einige 'Commits' könnten etwas
 umformuliert werden. Dann gib ein:
@@ -46,24 +46,49 @@ $EDITOR. Auszug aus einem Beispiel:
     pick a311a64 Analogien in "Arbeite wie du willst" umorganisiert
     pick 100834f Push-Ziel zum Makefile hinzugefügt
 
-Dann:
+In dieser Liste stehen die älteren 'Commits' vor den neuen, anders als beim
+'log' Befehl. Hier ist 5c6eb73 der älteste 'Commit' und 100834f ist der
+neueste. Dann:
 
-- Entferne 'Commits' durch das Löschen von Zeilen.
-- Organisiere 'Commits' durch verschieben von Zeilen.
+- Entferne 'Commits' durch das Löschen von Zeilen. Das ist wie die
+  'revert' Anweisung, aber inoffiziell: Es wird so sein, als hätte
+  der 'Commit' gar nie existiert.
+- Organisiere 'Commits' durch das Verschieben von Zeilen.
 - Ersetze `pick` mit:
    * `edit` um einen 'Commit' für 'amends' zu markieren.
    * `reword` um die Log-Beschreibung zu ändern.
    * `squash` um einen 'Commit' mit dem vorhergehenden zu vereinen ('merge').
    * `fixup` um einen 'Commit' mit dem vorhergehenden zu vereinen ('merge') und die Log-Beschreibung zu verwerfen.
 
-Speichere und Beende. Wenn du einen 'Commit' mit 'edit' markiert hast, gib
-ein:
+Zum Beispiel ersetzen wir das zweite `pick` durch `squash`:
 
- $ git commit --amend
+    pick 5c6eb73 Link repo.or.cz hinzugefügt
+    squash a311a64 Analogien in "Arbeite wie du willst" umorganisiert
+    pick 100834f Push-Ziel zum Makefile hinzugefügt
 
-Ansonsten:
+Nach dem Speichern und Beenden wird Git den 'Commit' a311a64 in den 'Commit'
+5c6eb73 'mergen'. Dieses *squash* zwängt die Änderungen in den nächsten
+'Commit' darüber: Denke an ``aufzwingen''.
+
+Git kombiniert die Log-Beschreibungen und präsentiert sie zum
+Bearbeiten. Die Anweisung *fixup* überspringt diesen Schritt; Die
+Log-Beschreibung des aufgezwungenen 'Commit' wird einfach verworfen.
+
+Wenn du einen 'Commit' mit *'edit'* markiert hast, bringt Dich Git in die
+Vergangenheit, zum ältesten 'Commit' dieser Art. Du kannst den alten
+'Commit' zurücknehmen, wie im vorhergehenden Abschnitt beschrieben und sogar
+neue 'Commits' erstellen, die hier her gehören. Wenn Du mit Deinen
+``rückwirkenden Änderungen'' zufrieden bist, gehe weiter in Richtung
+Gegenwart durch Eingabe von:
 
  $ git rebase --continue
+
+Git wiederholt dann alle 'Commits' bis zum nächsten *'edit'* oder bis zur
+Gegenwart, wenn keine weiteren vorkommen.
+
+Du kannst den 'Rebase' auch abbrechen, mit:
+
+ $ git rebase --abort
 
 Also 'commite' früh und oft: du kannst später mit 'rebase' aufräumen.
 
@@ -85,6 +110,9 @@ Fällen kannst du den *--onto* Schalter benutzen um Interaktion zu vermeiden.
 Siehe auch *git help rebase* für ausführliche Beispiele dieser erstaunlichen
 Anweisung. Du kannst auch 'Commits' aufteilen. Du kannst sogar 'Branches' in
 einem 'Repository' umorganisieren.
+
+Sei Vorsichtig: 'Rebase' ist eine mächtige Anweisung. Für komplizierte
+'Rebase'-Aktionen, mache vorher eine Sicherung mit *git clone*.
 
 === Chronik umschreiben ===
 
